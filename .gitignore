@@ -1,0 +1,13 @@
+# Composer's standalone installer binary — a tool, not project code.
+# Anyone cloning this can get it fresh from getcomposer.org, or use a
+# globally-installed `composer` if they have one.
+composer.phar
+
+# The SQLite database file itself — regenerated fresh via
+# `php artisan migrate --seed` per the README's setup guide, so it
+# shouldn't ship with whatever local test data happens to be in it.
+api/database/database.sqlite
+
+# OS-generated junk
+.DS_Store
+Thumbs.db
