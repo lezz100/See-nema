@@ -17,6 +17,8 @@ COPY . .
 
 RUN composer install --optimize-autoloader --no-dev --no-interaction
 
-# Render sets $PORT at runtime; migrate first (safe to repeat — Laravel skips
-# already-applied migrations), then start the server bound to that port.
-CMD php artisan migrate --force && php artisan serve --host 0.0.0.0 --port $PORT
+# Render sets $PORT at runtime. Migrate then seed on every boot — both are
+# safe to repeat (migrate skips already-applied migrations; FilmSeeder uses
+# updateOrCreate keyed on slug, so it never duplicates rows) — then start
+# the server bound to that port.
+CMD php artisan migrate --force && php artisan db:seed --force && php artisan serve --host 0.0.0.0 --port $PORT
