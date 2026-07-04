@@ -11,3 +11,6 @@ api/database/database.sqlite
 # OS-generated junk
 .DS_Store
 Thumbs.db
+
+# Claude Code's local session/tooling state — not project code
+.claude/
